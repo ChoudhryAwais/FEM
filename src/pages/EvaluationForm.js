@@ -46,7 +46,7 @@ const EvaluationForm = () => {
   })
 
   const hanldeChange = (e) => {
-    const { value, name } = e.target
+    const { value, name } = e.targetd
     setFormModal({
       ...formModal,
       [name]: parseInt(value)
@@ -62,15 +62,15 @@ const EvaluationForm = () => {
       good: 0
     }
     Object.values(formModal).forEach(e => {
-      if (e === 0) {
+      if (e === 1) {
         modal.poor++
-      } else if (e === 1) {
-        modal.unsatisfactory++
       } else if (e === 2) {
-        modal.satisfactory++
+        modal.unsatisfactory++
       } else if (e === 3) {
-        modal.fair++
+        modal.satisfactory++
       } else if (e === 4) {
+        modal.fair++
+      } else if (e === 5) {
         modal.good++
       }
     }
@@ -115,10 +115,7 @@ const EvaluationForm = () => {
       FirebaseCrud("Users", "updateDoc", { ...userInfo, courseFormFilled: courseId }, studentId)
       FirebaseCrud("CourseEvaForm", "updateDoc", updateResultOfCourseForm, courseId)
       navigate("/profile")
-
     }
-
-
   }
 
   useEffect(() => {

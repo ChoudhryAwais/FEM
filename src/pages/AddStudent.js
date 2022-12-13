@@ -62,7 +62,7 @@ const AddStudent = () => {
         const formModal = { ...modal }
         const AllStdGPA = (studentData.filter(item => item.idNumber === formModal.idNumber) || "").map(e => e.GPA)
         const CGPA = ((AllStdGPA.reduce((a, b) => parseInt(a) + parseInt(b), 0)) + (parseInt(formModal.GPA) || 0)) / (AllStdGPA.length + 1)
-        debugger
+        
         FirebaseCrud("Users", "addDoc", { ...formModal, CGPA: CGPA })
         alert("Student save")
 
@@ -128,7 +128,7 @@ const AddStudent = () => {
 
   const handleSelectExistingStd = (e) => {
     const seleStd = (studentData.filter(item => item.idNumber === e.target.value) || "")
-    debugger
+    
     if (seleStd.length > 0) {
       setModal({
         ...modal,

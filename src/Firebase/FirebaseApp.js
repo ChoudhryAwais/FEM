@@ -9,13 +9,13 @@ import 'firebase/compat/firestore';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAt0QfrSOoYlkweexQp6OFcZavOokI4uho",
-  authDomain: "fem-ee4bc.firebaseapp.com",
-  projectId: "fem-ee4bc",
-  storageBucket: "fem-ee4bc.appspot.com",
-  messagingSenderId: "406420173826",
-  appId: "1:406420173826:web:6c869294db3a1f6298a31b",
-  measurementId: "G-73TNMS1TZ4"
+  apiKey: "AIzaSyDyjC1e0r2RwsDvCnrjI0KY-OqOReZyjwo",
+  authDomain: "fem-portal-c2363.firebaseapp.com",
+  projectId: "fem-portal-c2363",
+  storageBucket: "fem-portal-c2363.appspot.com",
+  messagingSenderId: "622673162553",
+  appId: "1:622673162553:web:91d96fc712e1d89fb978e8",
+  measurementId: "G-C27PZ5LXB1"
 };
 // Use this to initialize the firebase App
 const firebaseApp = firebase.initializeApp(firebaseConfig);

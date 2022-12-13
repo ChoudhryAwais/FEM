@@ -49,7 +49,8 @@ const AddTeacher = () => {
         const password = userInfo.password
         const reLogin = await auth.signInWithEmailAndPassword(email, password)
         if (reLogin.user) {
-          FirebaseCrud("Users", "setDoc", { ...modal, role: "tutor", email: tutorName + "@fem.com", password: "fem123" }, id)
+          const courseName = ((allCourses.filter(e => e.id === courses) || "")[0] || {}).courseName
+          FirebaseCrud("Users", "setDoc", { ...modal, role: "tutor", email: tutorName + "@fem.com", password: "fem123", coursesName: courseName }, id)
           alert("Tutor save")
         }
       }).catch((error) => {
@@ -132,7 +133,7 @@ const AddTeacher = () => {
             >
               <option selected>Select Course</option>
               {allCourses && allCourses.map(e => {
-                return <option value={e.courseName} key={e.id}>{e.courseName}</option>
+                return <option value={e.id} key={e.id}>{e.courseName}</option>
               })}
             </select>
           </div>

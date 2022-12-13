@@ -74,20 +74,8 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             name={`q${q.id}`}
                             className="h-5 w-5"
                             onChange={hanldeChange}
-                            value={0}
-                            checked={formModal[`q${q.id}`] === 0 ? true : false}
-                          />
-                        </div>
-                      </td>
-                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <div className="grid place-items-center">
-                          <input
-                            type="radio"
-                            name={`q${q.id}`}
-                            className="h-5 w-5"
                             value={1}
-                            onChange={hanldeChange}
-                            checked={formModal[`q${q.id}`] === 1 ? true : false}
+                            checked={formModal[`q${q.id}`] === 0 ? true : false}
                           />
                         </div>
                       </td>
@@ -99,7 +87,7 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             className="h-5 w-5"
                             value={2}
                             onChange={hanldeChange}
-                            checked={formModal[`q${q.id}`] === 2 ? true : false}
+                            checked={formModal[`q${q.id}`] === 1 ? true : false}
                           />
                         </div>
                       </td>
@@ -111,7 +99,7 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             className="h-5 w-5"
                             value={3}
                             onChange={hanldeChange}
-                            checked={formModal[`q${q.id}`] === 3 ? true : false}
+                            checked={formModal[`q${q.id}`] === 2 ? true : false}
                           />
                         </div>
                       </td>
@@ -122,6 +110,18 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             name={`q${q.id}`}
                             className="h-5 w-5"
                             value={4}
+                            onChange={hanldeChange}
+                            checked={formModal[`q${q.id}`] === 3 ? true : false}
+                          />
+                        </div>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <div className="grid place-items-center">
+                          <input
+                            type="radio"
+                            name={`q${q.id}`}
+                            className="h-5 w-5"
+                            value={5}
                             onChange={hanldeChange}
                             checked={formModal[`q${q.id}`] === 4 ? true : false}
                           />
