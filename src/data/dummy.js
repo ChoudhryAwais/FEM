@@ -901,10 +901,10 @@ export const links = [
     title: "Evaluation Forms",
     role: "admin",
     links: [
-      {
-        name: "check-evaluation-forms",
-        icon: <FiShoppingBag />,
-      },
+      // {
+      //   name: "check-evaluation-forms",
+      //   icon: <FiShoppingBag />,
+      // },
       {
         name: "add-evaluation-form",
         icon: <FiShoppingBag />,
