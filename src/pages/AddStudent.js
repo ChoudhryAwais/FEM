@@ -62,7 +62,7 @@ const AddStudent = () => {
         const formModal = { ...modal }
         const AllStdGPA = (studentData.filter(item => item.idNumber === formModal.idNumber) || "").map(e => e.GPA)
         const CGPA = ((AllStdGPA.reduce((a, b) => parseInt(a) + parseInt(b), 0)) + (parseInt(formModal.GPA) || 0)) / (AllStdGPA.length + 1)
-        
+
         FirebaseCrud("Users", "addDoc", { ...formModal, CGPA: CGPA })
         alert("Student save")
 
@@ -114,21 +114,27 @@ const AddStudent = () => {
 
 
   const handleFileInputChange = e => {
-    getBase64(e.target.files[0])
-      .then(result => {
-        setModal({
-          ...modal,
-          fileToBase64: result
+    if (e.target.files[0].size < 999999) {
+      getBase64(e.target.files[0])
+        .then(result => {
+          setModal({
+            ...modal,
+            fileToBase64: result
+          })
         })
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      alert("Picture size must be smaller then 1MB")
+      let a = document.getElementById('picture');
+      a.value = ""
+    }
+
   };
 
   const handleSelectExistingStd = (e) => {
     const seleStd = (studentData.filter(item => item.idNumber === e.target.value) || "")
-    
     if (seleStd.length > 0) {
       setModal({
         ...modal,
@@ -145,8 +151,6 @@ const AddStudent = () => {
     }
 
   }
-
-  console.log("studentData", studentData)
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Students" title="Add Student" />
@@ -210,6 +214,7 @@ const AddStudent = () => {
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Student Picture:</label>
             <input
+              id="picture"
               type="file"
               className="form-control"
               onChange={handleFileInputChange}
@@ -253,7 +258,7 @@ const AddStudent = () => {
               onChange={handleChange}
               value={modal.semester}
             >
-              <option selected>Select Course</option>
+              <option selected>Select Semester</option>
               {allSemester.map(e => {
                 return <option value={e} key={e}>{e}</option>
               })}

@@ -129,9 +129,9 @@ const EvaluationForm = () => {
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Evaluation Form" title={courseData.courseName} />
       <div className="container mx-auto px-4 sm:px-32">
-        <div class="bg-white max-w-2xl shadow overflow-hidden sm:rounded-lg">
-          <div class="px-3 py-4 sm:px-6">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">
+        <div className="bg-white max-w-2xl shadow overflow-hidden sm:rounded-lg">
+          <div className="px-3 py-4 sm:px-6">
+            <h3 className="text-lg leading-6 font-medium text-gray-900">
               Form Details
             </h3>
             {/* <img
@@ -140,25 +140,25 @@ const EvaluationForm = () => {
                 src={profilePic}
               /> */}
           </div>
-          <div class="border-t border-gray-200">
+          <div className="border-t border-gray-200">
             <dl>
-              <div class="bg-gray-50 px-3 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class=" text-base font-medium text-gray-600">
+              <div className="bg-gray-50 px-3 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className=" text-base font-medium text-gray-600">
                   Teacher name
                 </dt>
-                <dd class="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
+                <dd className="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
                   {courseData.coursesInstructor}
                 </dd>
               </div>
-              <div class="bg-white px-3 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class=" text-base font-medium text-gray-600">Courses</dt>
-                <dd class="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
+              <div className="bg-white px-3 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className=" text-base font-medium text-gray-600">Courses</dt>
+                <dd className="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
                   {courseData.courseName}
                 </dd>
               </div>
-              <div class="bg-gray-50 px-3 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class=" text-base font-medium text-gray-600">Department</dt>
-                <dd class="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
+              <div className="bg-gray-50 px-3 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className=" text-base font-medium text-gray-600">Department</dt>
+                <dd className="mt-1 text-base text-gray-900 sm:mt-0 sm:col-span-2">
                   {courseData.department}
                 </dd>
               </div>

@@ -8,6 +8,7 @@ import { TextBoxComponent } from "@syncfusion/ej2-react-inputs";
 import { Button, Header } from "../components";
 import { FirebaseCrud } from "../Firebase/Curds";
 import { auth } from "../Firebase/FirebaseApp";
+import Select from 'react-select'
 
 const AddTeacher = () => {
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -25,7 +26,14 @@ const AddTeacher = () => {
     const getCourses = async () => {
       const result = await FirebaseCrud("Courses", "getDocAll")
       if (result) {
-        setAllCourses(result)
+        let arr = []
+        result.forEach(element => {
+          arr.push({
+            value: element.id,
+            label: element.courseName
+          })
+        });
+        setAllCourses(arr)
       }
     }
     getCourses()
@@ -49,9 +57,21 @@ const AddTeacher = () => {
         const password = userInfo.password
         const reLogin = await auth.signInWithEmailAndPassword(email, password)
         if (reLogin.user) {
-          const courseName = ((allCourses.filter(e => e.id === courses) || "")[0] || {}).courseName
-          FirebaseCrud("Users", "setDoc", { ...modal, role: "tutor", email: tutorName + "@fem.com", password: "fem123", coursesName: courseName }, id)
-          alert("Tutor save")
+          let courseName = ""
+          let coursesName = []
+          const myArray = courses.split(",");
+          myArray.forEach(ele => {
+            courseName = ((allCourses.filter(e => e.value === ele) || "")[0] || {}).label
+            coursesName.push(courseName)
+          })
+          try {
+            FirebaseCrud("Users", "setDoc", { ...modal, role: "tutor", email: tutorName + "@fem.com", password: "fem123", coursesName: coursesName.toString() }, id)
+            alert("Tutor save")
+          } catch {
+            alert("Something went wrong")
+          }
+
+
         }
       }).catch((error) => {
         alert(error)
@@ -76,18 +96,35 @@ const AddTeacher = () => {
   };
 
   const handleFileInputChange = e => {
-    getBase64(e.target.files[0])
-      .then(result => {
-        setModal({
-          ...modal,
-          fileToBase64: result
+    if (e.target.files[0].size < 999999) {
+      getBase64(e.target.files[0])
+        .then(result => {
+          setModal({
+            ...modal,
+            fileToBase64: result
+          })
         })
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      alert("Picture size must be smaller then 1MB")
+      let a = document.getElementById('picture');
+      a.value = ""
+    }
+
   };
 
+  const handleMultiSelect = (e) => {
+    let arr = []
+    e.forEach(element => {
+      arr.push(element.value)
+    });
+    setModal({
+      ...modal,
+      courses: arr.toString()
+    })
+  }
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
@@ -107,6 +144,7 @@ const AddTeacher = () => {
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Tutor Picture:</label>
             <input
+              id="picture"
               type="file"
               className="form-control"
               onChange={handleFileInputChange}
@@ -125,17 +163,15 @@ const AddTeacher = () => {
           </div>
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Courses:</label>
-            <select
-              className="form-select"
-              name="courses"
-              onChange={handleChange}
-              value={modal.courses}
-            >
-              <option selected>Select Course</option>
-              {allCourses && allCourses.map(e => {
-                return <option value={e.id} key={e.id}>{e.courseName}</option>
-              })}
-            </select>
+            <Select
+              closeMenuOnSelect={false}
+              isMulti
+              name="colors"
+              options={allCourses}
+              className="basic-multi-select"
+              classNamePrefix="select"
+              onChange={handleMultiSelect}
+            />
           </div>
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Department:</label>

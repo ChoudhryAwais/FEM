@@ -11,11 +11,11 @@ const FormsTable = (props) => {
       <div className="py-8">
         <div className=" -mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
           <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-            <div class="px-4 py-5 sm:px-6">
-              <h3 class="text-lg leading-6 font-medium text-gray-900">
+            <div className="px-4 py-5 sm:px-6">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">
                 Form Evaluation
               </h3>
-              <p class="mt-1 max-w-2xl text-base text-gray-500">
+              <p className="mt-1 max-w-2xl text-base text-gray-500">
                 Details and informations evaluation forms.
               </p>
             </div>

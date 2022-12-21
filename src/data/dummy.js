@@ -128,7 +128,7 @@ export const teachersProfileTemplate = (props) => {
             <span style={{ fontWeight: 500 }}>Department: </span> {props?.department}
           </td>
           <td>
-            <span style={{ fontWeight: 500 }}>Courses Instructed: </span>{props?.courses}
+            <span style={{ fontWeight: 500 }}>Courses Instructed: </span>{props?.coursesName}
           </td>
           {/* <td>
             <span style={{ fontWeight: 500 }}>Forms Remaining:</span>
@@ -834,6 +834,7 @@ export const links = [
     role: "student",
     links: [
       {
+        route: "profile",
         name: "profile",
         icon: <FiShoppingBag />,
       },
@@ -845,6 +846,7 @@ export const links = [
     role: "tutor",
     links: [
       {
+        route: "profile",
         name: "profile",
         icon: <FiShoppingBag />,
       },
@@ -856,7 +858,8 @@ export const links = [
     role: "admin",
     links: [
       {
-        name: "check-students",
+        route: "check-students",
+        name: "students",
         icon: <FiShoppingBag />,
       },
       /* {
@@ -864,6 +867,7 @@ export const links = [
         icon: <FiShoppingBag />,
       }, */
       {
+        route: "add-student",
         name: "add-student",
         icon: <FiShoppingBag />,
       },
@@ -874,10 +878,12 @@ export const links = [
     role: "admin",
     links: [
       {
-        name: "check-teachers",
+        route: "check-teachers",
+        name: "teachers",
         icon: <FiShoppingBag />,
       },
       {
+        route: "add-teacher",
         name: "add-teacher",
         icon: <FiShoppingBag />,
       },
@@ -888,10 +894,12 @@ export const links = [
     role: "admin",
     links: [
       {
-        name: "check-courses",
+        route: "check-courses",
+        name: "courses",
         icon: <FiShoppingBag />,
       },
       {
+        route: "add-course",
         name: "add-course",
         icon: <FiShoppingBag />,
       },
@@ -906,6 +914,7 @@ export const links = [
       //   icon: <FiShoppingBag />,
       // },
       {
+        route: "add-evaluation-form",
         name: "add-evaluation-form",
         icon: <FiShoppingBag />,
       },

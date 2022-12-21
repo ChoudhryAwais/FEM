@@ -80,20 +80,20 @@ const AddCourse = () => {
               value={modal.idNumber}
             />
           </div>
-          <div className="flex flex-col gap-2 mb-6">
-            <label className="">Course Instructor:</label>
-            <select
-              className="form-select"
-              name="coursesInstructor"
-              onChange={handleChange}
-              value={modal.coursesInstructor}
-            >
-              <option selected>Select Tutor</option>
-              {allTutor && allTutor.map(e => {
-                return <option value={e.tutorName} key={e.id}>{e.tutorName}</option>
-              })}
-            </select>
-          </div>
+        {/* <div className="flex flex-col gap-2 mb-6">
+          <label className="">Course Instructor:</label>
+          <select
+            className="form-select"
+            name="coursesInstructor"
+            onChange={handleChange}
+            value={modal.coursesInstructor}
+          >
+            <option selected>Select Tutor</option>
+            {allTutor && allTutor.map(e => {
+              return <option value={e.tutorName} key={e.id}>{e.tutorName}</option>
+            })}
+          </select>
+        </div> */}
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Department:</label>
             <TextBoxComponent
