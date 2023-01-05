@@ -75,7 +75,7 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             className="h-5 w-5"
                             onChange={hanldeChange}
                             value={1}
-                            checked={formModal[`q${q.id}`] === 0 ? true : false}
+                            checked={formModal[`q${q.id}`] === 1 ? true : false}
                           />
                         </div>
                       </td>
@@ -87,7 +87,7 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             className="h-5 w-5"
                             value={2}
                             onChange={hanldeChange}
-                            checked={formModal[`q${q.id}`] === 1 ? true : false}
+                            checked={formModal[`q${q.id}`] === 2 ? true : false}
                           />
                         </div>
                       </td>
@@ -99,7 +99,7 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             className="h-5 w-5"
                             value={3}
                             onChange={hanldeChange}
-                            checked={formModal[`q${q.id}`] === 2 ? true : false}
+                            checked={formModal[`q${q.id}`] === 3 ? true : false}
                           />
                         </div>
                       </td>
@@ -111,7 +111,7 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             className="h-5 w-5"
                             value={4}
                             onChange={hanldeChange}
-                            checked={formModal[`q${q.id}`] === 3 ? true : false}
+                            checked={formModal[`q${q.id}`] === 4 ? true : false}
                           />
                         </div>
                       </td>
@@ -123,7 +123,7 @@ const FormTemplate = ({ questions, hanldeChange, formModal }) => {
                             className="h-5 w-5"
                             value={5}
                             onChange={hanldeChange}
-                            checked={formModal[`q${q.id}`] === 4 ? true : false}
+                            checked={formModal[`q${q.id}`] === 5 ? true : false}
                           />
                         </div>
                       </td>

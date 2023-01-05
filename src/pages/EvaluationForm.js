@@ -46,7 +46,8 @@ const EvaluationForm = () => {
   })
 
   const hanldeChange = (e) => {
-    const { value, name } = e.targetd
+    const { value, name } = e.target
+
     setFormModal({
       ...formModal,
       [name]: parseInt(value)

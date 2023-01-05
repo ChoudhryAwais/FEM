@@ -22,12 +22,12 @@ const FormsTable = (props) => {
             <table className="border-t border-gray-200 min-w-full leading-normal">
               <thead>
                 <tr>
-                  <th
+                  {/* <th
                     scope="col"
                     className="font-medium px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase "
                   >
                     Teachers
-                  </th>
+                  </th> */}
                   <th
                     scope="col"
                     className="font-medium px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase "
@@ -51,7 +51,7 @@ const FormsTable = (props) => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                  {/* <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <div className="flex items-center">
                       <div className="ml-3">
                         <p className="text-gray-900 whitespace-no-wrap">
@@ -59,7 +59,7 @@ const FormsTable = (props) => {
                         </p>
                       </div>
                     </div>
-                  </td>
+                  </td> */}
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <p className="text-gray-900 whitespace-no-wrap">{courseData.courseName}</p>
                   </td>

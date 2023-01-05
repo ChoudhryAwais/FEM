@@ -37,9 +37,14 @@ const CheckStudents = () => {
 
   useEffect(() => {
     const getAllStudent = async () => {
-      const result = await FirebaseCrud("Users", "getDocAll")
-      const studentResult = result.filter(e => e.role === "student")
-      setStudentData(studentResult)
+      try {
+        const result = await FirebaseCrud("Users", "getDocAll")
+        const studentResult = result.filter(e => e.role === "student")
+        setStudentData(studentResult)
+      } catch(err) {
+        alert("Check your connection",err)
+      }
+
     }
     getAllStudent()
   }, [])

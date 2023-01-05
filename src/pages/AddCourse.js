@@ -41,7 +41,7 @@ const AddCourse = () => {
 
   const handleSubmit = () => {
     const { courseName, courses, department, idNumber, coursesInstructor } = modal
-    if (courseName !== "" && courses !== "" && department !== "" & idNumber !== "" & coursesInstructor !== "") {
+    if (courseName !== "" && courses !== "" && department !== "" & idNumber !== "") {
       FirebaseCrud("Courses", "addDoc", modal)
       alert("Course Save")
       setModal({
@@ -73,6 +73,7 @@ const AddCourse = () => {
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Course ID:</label>
             <TextBoxComponent
+              type="number"
               placeholder="Course ID"
               cssClass="e-filled"
               name="idNumber"
@@ -80,7 +81,7 @@ const AddCourse = () => {
               value={modal.idNumber}
             />
           </div>
-        {/* <div className="flex flex-col gap-2 mb-6">
+          {/* <div className="flex flex-col gap-2 mb-6">
           <label className="">Course Instructor:</label>
           <select
             className="form-select"
@@ -108,6 +109,7 @@ const AddCourse = () => {
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Year:</label>
             <TextBoxComponent
+              type="number"
               placeholder="Year"
               cssClass="e-filled"
               name="Year"

@@ -268,6 +268,7 @@ const AddStudent = () => {
           <div className="flex flex-col gap-2 mb-6">
             <label className="">Year:</label>
             <TextBoxComponent
+              type="number"
               placeholder="Year"
               cssClass="e-filled"
               name="Year"
